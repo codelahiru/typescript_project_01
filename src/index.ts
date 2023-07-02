@@ -3,7 +3,7 @@
 // There are three main primitives in JavaScript and TypeScript - number, string, boolean
 
 let id: number = 5
-let conpany: string = 'Ceylonsys'
+let company: string = 'Ceylonsys'
 let isPublished: boolean = true
 
 // Special Types - any, unknown, never
@@ -35,16 +35,16 @@ employee = [
     [3, 'Kamil'],
 ]
 
-//// TypeScript Union Types -----------------------------------------------------------------------
+//// TypeScript Union Types ---------------------------------------------------------
 
 let pid: number | string
 pid = 22
 pid = 'wef'
 
-//// TypeScript Enums -----------------------------------------------------------------------
+//// TypeScript Enums ---------------------------------------------------------------
 
 
-//// TypeScript Object Types -----------------------------------------------------------------------
+//// TypeScript Object Types --------------------------------------------------------
 
 type User = {
     id: number
@@ -56,8 +56,13 @@ const user: User = {
     name: 'John'
 }
 
-//// Type Assertion -----------------------------------------------------------------------
+//// Type Assertion -----------------------------------------------------------------
 
+let cid: any = 1
+let customerID1 = <number>cid
+
+// another way to do it
+let customerID2 = cid as number
 
 //// Function -----------------------------------------------------------------------
 
@@ -72,7 +77,22 @@ function log(message: string | number): void {
 }
 
 
+//// Interfaces ---------------------------------------------------------------------
 
+// can have readonly and optional properties
+
+interface UserInterface {
+    readonly id: number, // can have readonly properties
+    name: string,
+    age?: number       // age is optional, so if you don't give age to user1, it won't show error
+}
+
+const user1: UserInterface = {
+    id: 1,
+    name: 'John',
+}
+
+//user1.id = 5 // cannot set user1 id to 5 cos of readonly property
 
 
 
