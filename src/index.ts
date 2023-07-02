@@ -76,7 +76,6 @@ function log(message: string | number): void {
         console.log(message)
 }
 
-
 //// Interfaces ---------------------------------------------------------------------
 
 // can have readonly and optional properties
@@ -94,7 +93,60 @@ const user1: UserInterface = {
 
 //user1.id = 5 // cannot set user1 id to 5 cos of readonly property
 
+//// Classes ------------------------------------------------------------------
 
+// The members of a class (properties & methods) are typed using type annotations, similar to variables
 
+class Person {
+    id: number
+    name: string
 
+    constructor(id: number, name: string){
+        this.id = id
+        this.name = name
+    }
+
+    register() {
+        return  `${this.name} is now registered`
+    }
+}
+
+const brad = new Person(1, 'Brad')
+const mike = new Person(2, 'Mike')
+
+console.log(brad, mike)
+
+// using access modifiers - 'public', 'private' and 'protected'
+
+class Animal {
+    public kingdom: string
+    private extinct: boolean
+    protected id_no: number
+
+    constructor(kingdom: string, extinct: boolean, id_no: number){
+        this.kingdom = kingdom
+        this.extinct = extinct
+        this.id_no = id_no
+    }
+}
+
+const dodo = new Animal('Animalia', true, 1)
+const lion = new Animal('Animalia', false, 2)
+
+// subclass - using 'extends'
+
+class Employee extends Person {
+    position: string
+
+    constructor(id: number, name: string, position: string){
+        super(id, name)
+        this.position = position
+    }
+}
+
+const emp = new Employee(3, 'Shawn', 'Developer')
+console.log(emp.name)
+console.log(emp.register()); // output of 'node index' for this is 'Shawn is now registered'
+
+//// Generics -------------------------------------------------------------
 

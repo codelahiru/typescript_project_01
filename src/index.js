@@ -1,41 +1,40 @@
-"use strict";
 //// Basic Types -----------------------------------------------------------------------
 // There are three main primitives in JavaScript and TypeScript - number, string, boolean
-let id = 5;
-let company = 'Ceylonsys';
-let isPublished = true;
+var id = 5;
+var company = 'Ceylonsys';
+var isPublished = true;
 // Special Types - any, unknown, never
-let x = 'hello';
-let w = 1;
+var x = 'hello';
+var w = 1;
 /*let y: never = true*/
 //// how to initialize -----------------------------------------------------------------------
-let age;
+var age;
 age = 34;
 //// TypeScript Arrays -----------------------------------------------------------------------
-let ids = [1, 2, 3, 4, 5];
+var ids = [1, 2, 3, 4, 5];
 //// TypeScript Tuples -----------------------------------------------------------------------
-let person;
+var person;
 person = [30, 'John', true];
 // Tuple array
-let employee;
+var employee;
 employee = [
     [1, 'Brad'],
     [2, 'Joe'],
     [3, 'Kamil'],
 ];
 //// TypeScript Union Types ---------------------------------------------------------
-let pid;
+var pid;
 pid = 22;
 pid = 'wef';
-const user = {
+var user = {
     id: 1,
     name: 'John'
 };
 //// Type Assertion -----------------------------------------------------------------
-let cid = 1;
-let customerID1 = cid;
+var cid = 1;
+var customerID1 = cid;
 // another way to do it
-let customerID2 = cid;
+var customerID2 = cid;
 //// Function -----------------------------------------------------------------------
 function addNum(x, y) {
     return x + y;
@@ -44,41 +43,45 @@ function addNum(x, y) {
 function log(message) {
     console.log(message);
 }
-const user1 = {
+var user1 = {
     id: 1,
     name: 'John',
 };
 //user1.id = 5 // cannot set user1 id to 5 cos of readonly property
 //// Classes ------------------------------------------------------------------
 // The members of a class (properties & methods) are typed using type annotations, similar to variables
-class Person {
-    constructor(id, name) {
+var Person = /** @class */ (function () {
+    function Person(id, name) {
         this.id = id;
         this.name = name;
     }
-    register() {
-        return `${this.name} is now registered`;
-    }
-}
-const brad = new Person(1, 'Brad');
-const mike = new Person(2, 'Mike');
-console.log(brad, mike);
+    Person.prototype.register = function () {
+        return "".concat(this.name, " is now registered");
+    };
+    return Person;
+}());
+var brad = new Person(1, 'Brad');
+var mike = new Person(2, 'Mike');
+//console.log(brad, mike)
 // using access modifiers - 'public', 'private' and 'protected'
-class Animal {
-    constructor(kingdom, extinct, id_no) {
-        this.kingdom = kingdom;
-        this.extinct = extinct;
-        this.id_no = id_no;
-    }
-}
-const dodo = new Animal('Animalia', true, 1);
-const lion = new Animal('Animalia', false, 2);
-class Employee extends Person {
-    constructor(id, name, position) {
-        super(id, name);
-        this.position = position;
-    }
-}
-const emp = new Employee(3, 'Shawn', 'Developer');
-console.log(emp.name);
-console.log(emp.register()); // output of 'node index' for this is 'Shawn is now registered'
+// class Animal {
+//     public kingdom: string
+//     private extinct: boolean
+//     protected id_no: number
+//     constructor(kingdom: string, extinct: boolean, id_no: number){
+//         this.kingdom = kingdom
+//         this.extinct = extinct
+//         this.id_no = id_no
+//     }
+// }
+// const dodo = new Animal('Animalia', true, 1)
+// const lion = new Animal('Animalia', false, 2)
+// class Employee extends Person {
+//     position: string
+//     constructor(id: number, name: string, position: string){
+//         super(id, name)
+//         this.position = position
+//     }
+// }
+// const emp = new Employee(3, 'Shawn', 'Developer')
+// console.log(emp.name)
