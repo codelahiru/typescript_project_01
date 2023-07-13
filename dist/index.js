@@ -1,8 +1,9 @@
 "use strict";
+/* ******************* */
 //// Basic Types -----------------------------------------------------------------------
 // There are three main primitives in JavaScript and TypeScript - number, string, boolean
 let id = 5;
-let conpany = 'Ceylonsys';
+let company = 'Ceylonsys';
 let isPublished = true;
 // Special Types - any, unknown, never
 let x = 'hello';
@@ -23,7 +24,7 @@ employee = [
     [2, 'Joe'],
     [3, 'Kamil'],
 ];
-//// TypeScript Union Types -----------------------------------------------------------------------
+//// TypeScript Union Types ---------------------------------------------------------
 let pid;
 pid = 22;
 pid = 'wef';
@@ -31,7 +32,11 @@ const user = {
     id: 1,
     name: 'John'
 };
-//// Type Assertion -----------------------------------------------------------------------
+//// Type Assertion -----------------------------------------------------------------
+let cid = 1;
+let customerID1 = cid;
+// another way to do it
+let customerID2 = cid;
 //// Function -----------------------------------------------------------------------
 function addNum(x, y) {
     return x + y;
@@ -40,3 +45,8 @@ function addNum(x, y) {
 function log(message) {
     console.log(message);
 }
+const user1 = {
+    id: 1,
+    name: 'John',
+};
+//user1.id = 5 // cannot set user1 id to 5 cos of readonly property
