@@ -1,3 +1,5 @@
+/* ******************* */
+
 //// Basic Types -----------------------------------------------------------------------
 
 // There are three main primitives in JavaScript and TypeScript - number, string, boolean
