@@ -73,6 +73,7 @@ class Animal {
 }
 const dodo = new Animal('Animalia', true, 1);
 const lion = new Animal('Animalia', false, 2);
+// subclass - using 'extends'
 class Employee extends Person {
     constructor(id, name, position) {
         super(id, name);
@@ -82,3 +83,4 @@ class Employee extends Person {
 const emp = new Employee(3, 'Shawn', 'Developer');
 console.log(emp.name);
 console.log(emp.register()); // output of 'node index' for this is 'Shawn is now registered'
+//// Generics -------------------------------------------------------------
